@@ -1,10 +1,40 @@
+import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import { navLinks } from "@/components/Navbar";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyIcon = any;
 
+const SAVE_CLIENT_URL = "https://functions.poehali.dev/1e3f942e-95c3-401a-8a00-49a97d58439d";
+
 export default function ContactsFooter() {
+  const [form, setForm] = useState({ name: "", phone: "", service: "", comment: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const res = await fetch(SAVE_CLIENT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setForm({ name: "", phone: "", service: "", comment: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <>
       {/* CONTACTS */}
@@ -20,57 +50,96 @@ export default function ContactsFooter() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="bg-white rounded-3xl p-8 border border-warm-beige">
               <h3 className="font-display text-2xl text-foreground mb-6">Оставить заявку</h3>
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-sm font-body text-foreground mb-2">Ваше имя</label>
-                  <input
-                    type="text"
-                    placeholder="Как вас зовут?"
-                    className="w-full border border-warm-beige rounded-2xl px-4 py-3 font-body text-sm bg-cream focus:outline-none focus:border-sage transition-colors"
-                  />
+              {status === "success" ? (
+                <div className="text-center py-10">
+                  <div className="w-16 h-16 rounded-full bg-sage-pale flex items-center justify-center mx-auto mb-4">
+                    <Icon name="Check" size={32} className="text-sage" />
+                  </div>
+                  <h4 className="font-display text-xl text-foreground mb-2">Заявка отправлена!</h4>
+                  <p className="text-muted-foreground font-body text-sm">Мы свяжемся с вами в течение 30 минут</p>
+                  <button
+                    className="mt-6 text-sage font-body text-sm underline underline-offset-2"
+                    onClick={() => setStatus("idle")}
+                  >
+                    Отправить ещё одну заявку
+                  </button>
                 </div>
-                <div>
-                  <label className="block text-sm font-body text-foreground mb-2">Телефон</label>
-                  <input
-                    type="tel"
-                    placeholder="+7 (___) ___-__-__"
-                    className="w-full border border-warm-beige rounded-2xl px-4 py-3 font-body text-sm bg-cream focus:outline-none focus:border-sage transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-body text-foreground mb-2">Интересующая процедура</label>
-                  <select className="w-full border border-warm-beige rounded-2xl px-4 py-3 font-body text-sm bg-cream focus:outline-none focus:border-sage transition-colors text-muted-foreground">
-                    <option value="">Выберите процедуру</option>
-                    <option>LPG массаж тела</option>
-                    <option>LPG массаж лица</option>
-                    <option>Кавитация</option>
-                    <option>Вибрационный массаж</option>
-                    <option>Эндосфера</option>
-                    <option>EMS скульпт</option>
-                    <option>RF-лифтинг лица и тела</option>
-                    <option>Роликовый массажёр</option>
-                    <option>Индиба терапия</option>
-                    <option>Лазерный липолиз</option>
-                    <option>Прессотерапия с прогревом</option>
-                    <option>Субдермальный массаж</option>
-                    <option>Не знаю — нужна консультация</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-body text-foreground mb-2">Комментарий (необязательно)</label>
-                  <textarea
-                    placeholder="Расскажите о своём запросе..."
-                    rows={3}
-                    className="w-full border border-warm-beige rounded-2xl px-4 py-3 font-body text-sm bg-cream focus:outline-none focus:border-sage transition-colors resize-none"
-                  />
-                </div>
-                <button className="w-full bg-sage text-white py-4 rounded-2xl font-body font-medium hover:opacity-90 transition-opacity">
-                  Записаться на процедуру
-                </button>
-                <p className="text-xs text-muted-foreground font-body text-center">
-                  Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
-                </p>
-              </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <label className="block text-sm font-body text-foreground mb-2">Ваше имя</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={form.name}
+                      onChange={handleChange}
+                      placeholder="Как вас зовут?"
+                      required
+                      className="w-full border border-warm-beige rounded-2xl px-4 py-3 font-body text-sm bg-cream focus:outline-none focus:border-sage transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-body text-foreground mb-2">Телефон</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={form.phone}
+                      onChange={handleChange}
+                      placeholder="+7 (___) ___-__-__"
+                      required
+                      className="w-full border border-warm-beige rounded-2xl px-4 py-3 font-body text-sm bg-cream focus:outline-none focus:border-sage transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-body text-foreground mb-2">Интересующая процедура</label>
+                    <select
+                      name="service"
+                      value={form.service}
+                      onChange={handleChange}
+                      className="w-full border border-warm-beige rounded-2xl px-4 py-3 font-body text-sm bg-cream focus:outline-none focus:border-sage transition-colors text-muted-foreground"
+                    >
+                      <option value="">Выберите процедуру</option>
+                      <option>LPG массаж тела</option>
+                      <option>LPG массаж лица</option>
+                      <option>Кавитация</option>
+                      <option>Вибрационный массаж</option>
+                      <option>Эндосфера</option>
+                      <option>EMS скульпт</option>
+                      <option>RF-лифтинг лица и тела</option>
+                      <option>Роликовый массажёр</option>
+                      <option>Индиба терапия</option>
+                      <option>Лазерный липолиз</option>
+                      <option>Прессотерапия с прогревом</option>
+                      <option>Субдермальный массаж</option>
+                      <option>Не знаю — нужна консультация</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-body text-foreground mb-2">Комментарий (необязательно)</label>
+                    <textarea
+                      name="comment"
+                      value={form.comment}
+                      onChange={handleChange}
+                      placeholder="Расскажите о своём запросе..."
+                      rows={3}
+                      className="w-full border border-warm-beige rounded-2xl px-4 py-3 font-body text-sm bg-cream focus:outline-none focus:border-sage transition-colors resize-none"
+                    />
+                  </div>
+                  {status === "error" && (
+                    <p className="text-red-500 text-sm font-body text-center">Ошибка отправки. Попробуйте ещё раз.</p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="w-full bg-sage text-white py-4 rounded-2xl font-body font-medium hover:opacity-90 transition-opacity disabled:opacity-60"
+                  >
+                    {status === "loading" ? "Отправляем..." : "Записаться на процедуру"}
+                  </button>
+                  <p className="text-xs text-muted-foreground font-body text-center">
+                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                  </p>
+                </form>
+              )}
             </div>
 
             <div className="flex flex-col gap-6">

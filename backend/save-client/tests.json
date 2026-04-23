@@ -1,0 +1,20 @@
+{
+  "tests": [
+    {
+      "name": "Сохранение клиента",
+      "method": "POST",
+      "path": "/",
+      "body": {"name": "Тест Клиент", "phone": "+7 (999) 999-99-99", "service": "LPG массаж тела", "comment": "Тест"},
+      "expectedStatus": 200,
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Ошибка без имени",
+      "method": "POST",
+      "path": "/",
+      "body": {"phone": "+7 (999) 999-99-99"},
+      "expectedStatus": 400,
+      "bodyMatcher": "partial"
+    }
+  ]
+}
