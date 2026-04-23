@@ -99,12 +99,8 @@ export default function AboutPricesReviews() {
             </div>
             <div>
               <div className="text-sage text-sm font-body tracking-widest uppercase mb-4">О студии</div>
-              <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6 leading-tight">
-                История Анетки<br />и её миссии
-              </h2>
-              <p className="text-muted-foreground font-body leading-relaxed mb-5">
-                Меня зовут Анетка, и я создала эту студию с одной простой мечтой — помочь каждой женщине почувствовать себя красивой и уверенной в своём теле. Без хирургии, без боли, без стресса.
-              </p>
+              <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6 leading-tight">Моя история и мои миссии</h2>
+              <p className="text-muted-foreground font-body leading-relaxed mb-5">Меня зовут Анна, и я создала эту студию с одной простой мечтой — помочь каждой женщине почувствовать себя красивой и уверенной в своём теле. Без хирургии, без боли, без стресса.</p>
               <p className="text-muted-foreground font-body leading-relaxed mb-5">
                 5 лет назад я сама прошла курс LPG массажа и была поражена результатами. Тогда я решила получить профессиональную сертификацию и открыть собственную студию, где каждая клиентка будет чувствовать себя желанным гостем.
               </p>
