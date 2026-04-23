@@ -152,7 +152,7 @@ export default function ContactsFooter() {
                   {[
                     { icon: "MapPin", label: "Адрес", value: "г. Иркутск, ул. Багратиона, 46/4" },
                     { icon: "Phone", label: "Телефон", value: "+7 (902) 544-51-19" },
-                    { icon: "Mail", label: "Email", value: "hello@bodyslim-anetka.ru" },
+                    { icon: "Mail", label: "Email", value: "bodyslimanetka@www.аппаратныймассажиркутск.рф" },
                     { icon: "Clock", label: "Режим работы", value: "Пн–Сб: 9:00–21:00, Вс: 10:00–18:00" },
                   ].map((c) => (
                     <div key={c.label} className="flex items-start gap-4">
