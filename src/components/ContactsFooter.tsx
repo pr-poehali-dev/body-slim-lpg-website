@@ -184,9 +184,14 @@ export default function ContactsFooter() {
                     <Icon name="Phone" size={15} />
                     WhatsApp
                   </button>
-                  <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full px-4 py-2.5 text-sm font-body transition-all duration-200">
+                  <a
+                    href="https://max.ru/u/f9LHodD0cOIMIMF8u5iukSxhPFrqQ86xn6HKnSSVhOCDTIAor-ykj6jNl_g"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full px-4 py-2.5 text-sm font-body transition-all duration-200"
+                  >
                     <span className="text-sm font-bold leading-none">MAX</span>
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
