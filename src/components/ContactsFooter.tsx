@@ -67,7 +67,7 @@ export default function ContactsFooter() {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <label className="block text-sm font-body text-foreground mb-2">Ваше имя</label>
+                    <label className="block text-sm font-body text-foreground mb-2">Ваша фамилия и имя</label>
                     <input
                       type="text"
                       name="name"
