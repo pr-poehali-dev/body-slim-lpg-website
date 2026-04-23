@@ -121,7 +121,7 @@ export default function Privacy() {
           <h2 className="font-display text-2xl text-white mb-5">Контакты оператора</h2>
           <div className="space-y-4">
             {[
-              { icon: "Mail", label: "Email", value: "bodyslimanetka@www.аппаратныймассажиркутск.рф", href: "mailto:bodyslimanetka@www.аппаратныймассажиркутск.рф" },
+              { icon: "Mail", label: "Email", value: "bodyanetka@анетка.рф", href: "mailto:bodyanetka@анетка.рф" },
               { icon: "Phone", label: "Телефон", value: "+7 (902) 544-51-19", href: "tel:+79025445119" },
               { icon: "MapPin", label: "Адрес", value: "г. Иркутск, ул. Багратиона, 46/4", href: undefined },
             ].map((c) => (
