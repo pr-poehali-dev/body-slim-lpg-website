@@ -17,9 +17,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-warm-beige">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="font-display text-xl font-semibold tracking-wide text-foreground">
-          BODY SLIM <span className="text-sage text-sm font-light">by Anetka</span>
-        </div>
+        <div className="font-display text-xl font-semibold tracking-wide text-foreground">Bodyslim by Anetka</div>
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((l) => (
             <a
