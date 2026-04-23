@@ -17,7 +17,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-md border-b border-warm-beige">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <img src="https://cdn.poehali.dev/projects/fbdd8c30-03fa-4929-b997-7be7b56e3ad3/bucket/c0ea22ae-a2ad-4fce-b7ca-b22df66d4e64.png" alt="Body Slim" className="h-10 w-auto" />
+        <img src="https://cdn.poehali.dev/projects/fbdd8c30-03fa-4929-b997-7be7b56e3ad3/bucket/99e16985-554d-46b0-a41a-ef2768a17f0b.png" alt="Body Slim" className="h-10 w-auto" />
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((l) => (
             <a
