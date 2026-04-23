@@ -136,7 +136,10 @@ export default function ContactsFooter() {
                     {status === "loading" ? "Отправляем..." : "Записаться на процедуру"}
                   </button>
                   <p className="text-xs text-muted-foreground font-body text-center">
-                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                    Нажимая кнопку, вы соглашаетесь с{" "}
+                    <a href="/privacy" target="_blank" className="underline underline-offset-2 hover:text-sage transition-colors">
+                      политикой конфиденциальности
+                    </a>
                   </p>
                 </form>
               )}
