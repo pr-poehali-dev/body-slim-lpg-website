@@ -21,8 +21,8 @@ def send_telegram(message: str):
     req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
     try:
         urllib.request.urlopen(req, timeout=5)
-    except Exception:
-        pass
+    except Exception as e:
+        print(f"[Telegram error] {e}")
 
 def handler(event: dict, context) -> dict:
     """Сохраняет заявку клиента и отправляет уведомление в Telegram."""
