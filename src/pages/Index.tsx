@@ -675,7 +675,7 @@ export default function Index() {
                 <h3 className="font-display text-2xl text-foreground mb-6">Как нас найти</h3>
                 <div className="space-y-5">
                   {[
-                    { icon: "MapPin", label: "Адрес", value: "г. Москва, ул. Цветочная, 15, офис 204" },
+                    { icon: "MapPin", label: "Адрес", value: "г. Иркутск, ул. Багратиона, 46/4" },
                     { icon: "Phone", label: "Телефон", value: "+7 (999) 123-45-67" },
                     { icon: "Mail", label: "Email", value: "hello@bodyslim-anetka.ru" },
                     { icon: "Clock", label: "Режим работы", value: "Пн–Сб: 9:00–21:00, Вс: 10:00–18:00" },
@@ -723,7 +723,7 @@ export default function Index() {
       <div className="h-64 bg-warm-beige relative overflow-hidden flex items-center justify-center">
         <div className="text-center">
           <Icon name="MapPin" size={32} className="text-sage mx-auto mb-3" />
-          <p className="font-display text-xl text-foreground">г. Москва, ул. Цветочная, 15</p>
+          <p className="font-display text-xl text-foreground">г. Иркутск, ул. Багратиона, 46/4</p>
           <p className="font-body text-sm text-muted-foreground mt-1">Схема проезда — уточните в разделе контактов</p>
         </div>
       </div>
