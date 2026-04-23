@@ -23,7 +23,7 @@ def send_telegram(message: str):
     try:
         urllib.request.urlopen(req, timeout=5)
     except Exception as e:
-        print(f"[Telegram error] {e}")
+        print(f"[Telegram error] {e} | token={token[:20]} | chat={chat_id}")
 
 def handler(event: dict, context) -> dict:
     """Сохраняет заявку клиента и отправляет уведомление в Telegram."""
