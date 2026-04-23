@@ -120,7 +120,7 @@ export default function HeroAndServices() {
             </div>
             <h1 className="font-display text-5xl md:text-7xl text-white leading-tight mb-6">
               Тело,<br />
-              <em className="not-italic" style={{ color: "hsl(142 25% 72%)" }}>которое вы</em><br />
+              <em className="not-italic text-violet-400" style={{ color: "hsl(142 25% 72%)" }}>которое вы</em><br />
               заслуживаете
             </h1>
             <p className="text-white/80 text-lg leading-relaxed mb-10 font-body font-light max-w-lg">
