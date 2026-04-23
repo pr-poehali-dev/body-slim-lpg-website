@@ -203,9 +203,7 @@ export default function AboutPricesReviews() {
                     <Icon key={i} name="Star" size={14} className="text-amber-400 fill-amber-400" />
                   ))}
                 </div>
-                <p className="text-muted-foreground font-body text-sm leading-relaxed italic">
-                  «{r.text}»
-                </p>
+                <p className="text-muted-foreground font-body text-sm leading-relaxed italic">«Прошла курс из 10 процедур и результат превзошёл все ожидания! Минус 4 см в талии и кожа стала как шёлк. Анна — настоящий профессионал, объясняет каждый шаг.»</p>
               </div>
             ))}
           </div>
