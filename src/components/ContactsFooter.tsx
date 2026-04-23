@@ -233,10 +233,8 @@ export default function ContactsFooter() {
                 </a>
               ))}
             </div>
-            <div className="text-white/40 text-xs font-body text-center">
-              © 2024 BODY SLIM BY ANETKA<br />
-              Все права защищены
-            </div>
+            <div className="text-white/40 text-xs font-body text-center">© 2026 BODY SLIM BY ANETKA
+Все права защищены</div>
           </div>
         </div>
       </footer>
