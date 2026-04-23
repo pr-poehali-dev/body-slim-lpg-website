@@ -38,41 +38,17 @@ const reviews = [
 ];
 
 const prices = [
-  {
-    title: "1 сеанс",
-    subtitle: "Любая процедура",
-    price: "1 300",
-    features: [
-      "LPG массаж тела или лица",
-      "Кавитация",
-      "Вибрационный массаж",
-      "Эндосфера",
-      "EMS скульпт",
-      "RF-лифтинг лица и тела",
-      "Роликовый массажёр",
-      "Индиба терапия",
-      "Лазерный липолиз",
-      "Прессотерапия с прогревом",
-      "Субдермальный массаж",
-    ],
-    highlight: false,
-  },
-  {
-    title: "Курс «Старт»",
-    subtitle: "Первые результаты",
-    price: "6 000",
-    oldPrice: "7 200",
-    features: ["5 сеансов LPG массажа", "Составление программы", "Замеры до и после", "Рекомендации по уходу"],
-    highlight: true,
-    badge: "Популярный",
-  },
-  {
-    title: "Курс «Трансформация»",
-    subtitle: "Максимальный эффект",
-    price: "11 000",
-    features: ["10 сеансов LPG массажа", "Индивидуальная программа", "Замеры каждые 3 сеанса", "Фото до/после", "Поддержка между сеансами"],
-    highlight: false,
-  },
+  { title: "Аппаратный массаж LPG", price: "1 300" },
+  { title: "Аппаратный массаж LPG лица", price: "1 300" },
+  { title: "Кавитация", price: "1 100" },
+  { title: "Вибрационный массаж", price: "1 000" },
+  { title: "Эндосфера", price: "1 300" },
+  { title: "EMS (увеличение объёма мышц)", price: "1 200" },
+  { title: "RF-лифтинг лица и тела", price: "1 100" },
+  { title: "Роликовый тренажёр", price: "500" },
+  { title: "Индиба терапия", price: "1 400" },
+  { title: "Лазерный липолиз", price: "800" },
+  { title: "Прессотерапия с прогревом", price: "800" },
 ];
 
 const articles = [
@@ -161,71 +137,36 @@ export default function AboutPricesReviews() {
             <div className="text-sage text-sm font-body tracking-widest uppercase mb-4">Стоимость</div>
             <h2 className="font-display text-4xl md:text-5xl text-foreground mb-6">Прайс-лист</h2>
             <p className="text-muted-foreground font-body max-w-xl mx-auto">
-              Выберите подходящую программу. Все курсы включают бесплатную консультацию
+              Стоимость одного сеанса каждой процедуры
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {prices.map((p) => (
+          <div className="max-w-2xl mx-auto bg-white rounded-3xl border border-warm-beige overflow-hidden">
+            {prices.map((p, i) => (
               <div
                 key={p.title}
-                className={`rounded-3xl p-8 relative overflow-hidden transition-transform duration-300 hover:-translate-y-1 ${
-                  p.highlight
-                    ? "bg-sage text-white shadow-2xl"
-                    : "bg-white border border-warm-beige"
+                className={`flex items-center justify-between px-8 py-5 group hover:bg-sage-pale transition-colors duration-200 ${
+                  i !== prices.length - 1 ? "border-b border-warm-beige" : ""
                 }`}
               >
-                {p.badge && (
-                  <div className="absolute top-6 right-6 bg-white/20 text-white text-xs font-body px-3 py-1 rounded-full">
-                    {p.badge}
-                  </div>
-                )}
-                <div className={`text-sm font-body tracking-widest uppercase mb-2 ${p.highlight ? "text-white/60" : "text-sage"}`}>
-                  {p.subtitle}
+                <div className="flex items-center gap-3">
+                  <div className="w-2 h-2 rounded-full bg-sage opacity-50 group-hover:opacity-100 transition-opacity" />
+                  <span className="font-body text-foreground text-sm md:text-base">{p.title}</span>
                 </div>
-                <h3 className={`font-display text-2xl mb-6 ${p.highlight ? "text-white" : "text-foreground"}`}>
-                  {p.title}
-                </h3>
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className={`font-display text-4xl font-light ${p.highlight ? "text-white" : "text-foreground"}`}>
-                    {p.price} ₽
-                  </span>
-                </div>
-                {p.oldPrice && (
-                  <div className={`text-sm line-through mb-6 ${p.highlight ? "text-white/50" : "text-muted-foreground"}`}>
-                    {p.oldPrice} ₽
-                  </div>
-                )}
-                {!p.oldPrice && <div className="mb-6" />}
-                <ul className="space-y-3 mb-8">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-center gap-3">
-                      <Icon
-                        name="Check"
-                        size={16}
-                        className={p.highlight ? "text-white/70" : "text-sage"}
-                      />
-                      <span className={`text-sm font-body ${p.highlight ? "text-white/80" : "text-muted-foreground"}`}>
-                        {f}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href="#contacts"
-                  className={`block text-center py-3 px-6 rounded-full text-sm font-body font-medium transition-all duration-200 ${
-                    p.highlight
-                      ? "bg-white text-sage hover:bg-white/90"
-                      : "bg-sage text-white hover:opacity-90"
-                  }`}
-                >
-                  Выбрать программу
-                </a>
+                <span className="font-display text-xl md:text-2xl text-sage font-light whitespace-nowrap ml-6">
+                  {p.price} ₽
+                </span>
               </div>
             ))}
           </div>
-          <p className="text-center text-muted-foreground text-sm font-body mt-8">
-            Также доступны разовые процедуры и индивидуальные пакеты. Уточните у специалиста.
-          </p>
+          <div className="text-center mt-10">
+            <a
+              href="#contacts"
+              className="inline-flex items-center gap-2 bg-sage text-white px-8 py-4 rounded-full font-body hover:opacity-90 transition-opacity"
+            >
+              Записаться на процедуру
+              <Icon name="ArrowRight" size={18} />
+            </a>
+          </div>
         </div>
       </section>
 
