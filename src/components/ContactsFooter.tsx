@@ -79,7 +79,7 @@ export default function ContactsFooter() {
                 <div className="space-y-5">
                   {[
                     { icon: "MapPin", label: "Адрес", value: "г. Иркутск, ул. Багратиона, 46/4" },
-                    { icon: "Phone", label: "Телефон", value: "+7 (999) 123-45-67" },
+                    { icon: "Phone", label: "Телефон", value: "+7 (902) 544-51-19" },
                     { icon: "Mail", label: "Email", value: "hello@bodyslim-anetka.ru" },
                     { icon: "Clock", label: "Режим работы", value: "Пн–Сб: 9:00–21:00, Вс: 10:00–18:00" },
                   ].map((c) => (
