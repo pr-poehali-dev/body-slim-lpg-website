@@ -43,8 +43,16 @@ export default function ContactsFooter() {
                     <option value="">Выберите процедуру</option>
                     <option>LPG массаж тела</option>
                     <option>LPG массаж лица</option>
-                    <option>Антицеллюлитная программа</option>
-                    <option>Моделирование силуэта</option>
+                    <option>Кавитация</option>
+                    <option>Вибрационный массаж</option>
+                    <option>Эндосфера</option>
+                    <option>EMS скульпт</option>
+                    <option>RF-лифтинг лица и тела</option>
+                    <option>Роликовый массажёр</option>
+                    <option>Индиба терапия</option>
+                    <option>Лазерный липолиз</option>
+                    <option>Прессотерапия с прогревом</option>
+                    <option>Субдермальный массаж</option>
                     <option>Не знаю — нужна консультация</option>
                   </select>
                 </div>

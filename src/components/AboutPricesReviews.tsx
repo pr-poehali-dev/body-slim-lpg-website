@@ -49,6 +49,7 @@ const prices = [
   { title: "Индиба терапия", price: "1 400" },
   { title: "Лазерный липолиз", price: "800" },
   { title: "Прессотерапия с прогревом", price: "800" },
+  { title: "Субдермальный массаж", price: "1 000" },
 ];
 
 const articles = [
