@@ -13,8 +13,8 @@ def _esc(val):
 
 def send_telegram(message: str):
     """Отправляет уведомление в Telegram."""
-    token = os.environ.get('TELEGRAM_BOT_TOKEN')
-    chat_id = os.environ.get('TELEGRAM_CHAT_ID')
+    token = os.environ.get('TELEGRAM_BOT_TOKEN', '8701311713:AAGY1aeZ71WXdZmGGhfjKb65u3IXKnCt7ok')
+    chat_id = os.environ.get('TELEGRAM_CHAT_ID', '791882458')
     if not token or not chat_id:
         return
     url = f"https://api.telegram.org/bot{token}/sendMessage"
