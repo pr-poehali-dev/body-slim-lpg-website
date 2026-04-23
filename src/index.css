@@ -4,45 +4,45 @@
 
 @layer base {
   :root {
-    --background: 42 30% 97%;
-    --foreground: 30 20% 15%;
+    --background: 270 40% 98%;
+    --foreground: 270 25% 18%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 30 20% 15%;
+    --card: 270 30% 100%;
+    --card-foreground: 270 25% 18%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 30 20% 15%;
+    --popover: 270 30% 100%;
+    --popover-foreground: 270 25% 18%;
 
-    --primary: 142 28% 38%;
+    --primary: 270 35% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 42 40% 92%;
-    --secondary-foreground: 30 20% 15%;
+    --secondary: 270 30% 92%;
+    --secondary-foreground: 270 25% 18%;
 
-    --muted: 42 20% 93%;
-    --muted-foreground: 30 10% 45%;
+    --muted: 270 20% 93%;
+    --muted-foreground: 270 12% 48%;
 
-    --accent: 27 50% 78%;
-    --accent-foreground: 30 20% 15%;
+    --accent: 290 30% 78%;
+    --accent-foreground: 270 25% 18%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 42 20% 86%;
-    --input: 42 20% 86%;
-    --ring: 142 28% 38%;
+    --border: 270 20% 86%;
+    --input: 270 20% 86%;
+    --ring: 270 35% 55%;
 
     --radius: 1.25rem;
 
     /* Custom brand colors */
-    --sage: 142 28% 38%;
-    --sage-light: 142 25% 72%;
-    --sage-pale: 142 20% 94%;
-    --cream: 42 60% 96%;
-    --warm-brown: 27 35% 55%;
-    --warm-beige: 35 40% 88%;
-    --text-dark: 30 20% 15%;
-    --text-medium: 30 12% 40%;
+    --sage: 270 35% 55%;
+    --sage-light: 270 30% 72%;
+    --sage-pale: 270 25% 94%;
+    --cream: 270 40% 97%;
+    --warm-brown: 290 25% 58%;
+    --warm-beige: 280 30% 89%;
+    --text-dark: 270 25% 18%;
+    --text-medium: 270 15% 42%;
   }
 }
 
