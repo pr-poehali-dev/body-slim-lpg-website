@@ -1,6 +1,7 @@
 import json
 import os
 import urllib.parse
+import urllib.request
 import pg8000.native
 
 def _esc(val):
@@ -9,8 +10,22 @@ def _esc(val):
         return 'NULL'
     return "'" + str(val).replace("'", "''") + "'"
 
+def send_telegram(message: str):
+    """Отправляет уведомление в Telegram."""
+    token = os.environ.get('TELEGRAM_BOT_TOKEN')
+    chat_id = os.environ.get('TELEGRAM_CHAT_ID')
+    if not token or not chat_id:
+        return
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    data = json.dumps({'chat_id': chat_id, 'text': message, 'parse_mode': 'HTML'}).encode()
+    req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'})
+    try:
+        urllib.request.urlopen(req, timeout=5)
+    except Exception:
+        pass
+
 def handler(event: dict, context) -> dict:
-    """Сохраняет заявку клиента в таблицу clients."""
+    """Сохраняет заявку клиента и отправляет уведомление в Telegram."""
 
     if event.get('httpMethod') == 'OPTIONS':
         return {
@@ -61,6 +76,16 @@ def handler(event: dict, context) -> dict:
     row = conn.run(sql)
     conn.close()
     client_id = row[0][0]
+
+    message = (
+        f"📋 <b>Новая заявка #{client_id}</b>\n\n"
+        f"👤 <b>Имя:</b> {name}\n"
+        f"📞 <b>Телефон:</b> {phone}\n"
+        + (f"✉️ <b>Email:</b> {email}\n" if email else "")
+        + (f"💆 <b>Услуга:</b> {service}\n" if service else "")
+        + (f"💬 <b>Комментарий:</b> {comment}\n" if comment else "")
+    )
+    send_telegram(message)
 
     return {
         'statusCode': 200,
