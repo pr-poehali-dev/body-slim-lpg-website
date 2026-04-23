@@ -221,10 +221,12 @@ export default function ContactsFooter() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <div className="font-display text-2xl font-semibold mb-1">
-                BODY SLIM <span className="font-light text-base" style={{ color: "hsl(142 25% 72%)" }}>by Anetka</span>
-              </div>
-              <p className="text-white/50 text-sm font-body">Студия LPG массажа</p>
+              <img
+                src="https://cdn.poehali.dev/projects/fbdd8c30-03fa-4929-b997-7be7b56e3ad3/bucket/bfbe4af2-44dc-4960-b2c1-932ef14ee796.png"
+                alt="Body Slim"
+                className="h-12 w-auto"
+              />
+              <p className="text-white/50 text-sm font-body mt-1">Студия LPG массажа</p>
             </div>
             <div className="flex flex-wrap gap-6 text-sm font-body text-white/60 justify-center">
               {navLinks.map((l) => (
