@@ -171,19 +171,22 @@ export default function ContactsFooter() {
                   Следите за нашими новостями, акциями и результатами клиентов
                 </p>
                 <div className="flex flex-wrap gap-3">
-                  {[
-                    { icon: "Instagram", label: "Instagram" },
-                    { icon: "MessageCircle", label: "Telegram" },
-                    { icon: "Phone", label: "WhatsApp" },
-                  ].map((s) => (
-                    <button
-                      key={s.label}
-                      className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full px-4 py-2.5 text-sm font-body transition-all duration-200"
-                    >
-                      <Icon name={s.icon as AnyIcon} size={15} />
-                      {s.label}
-                    </button>
-                  ))}
+                  <a
+                    href="https://t.me/Anetkalpg"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full px-4 py-2.5 text-sm font-body transition-all duration-200"
+                  >
+                    <Icon name="MessageCircle" size={15} />
+                    Telegram
+                  </a>
+                  <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full px-4 py-2.5 text-sm font-body transition-all duration-200">
+                    <Icon name="Phone" size={15} />
+                    WhatsApp
+                  </button>
+                  <button className="flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-full px-4 py-2.5 text-sm font-body transition-all duration-200">
+                    <span className="text-sm font-bold leading-none">MAX</span>
+                  </button>
                 </div>
               </div>
             </div>
